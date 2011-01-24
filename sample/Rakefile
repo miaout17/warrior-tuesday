@@ -1,0 +1,11 @@
+task :drink do
+  puts "I drink juice"
+end
+
+task :eat do
+  puts "I eat sandwitch"
+end
+
+task :breakfast => [:drink, :eat] do
+  puts "I ate breakfast"
+end
