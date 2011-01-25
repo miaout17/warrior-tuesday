@@ -7,19 +7,19 @@ class Player
   actions :walk!, :attack!, :rest!, :bind!, :rescue!, :detonate!
   senses :feel, :direction_of_stairs, :health, :listen, :direction_of, :look, :distance_of
 
-	# The following statement is equivalent: 
-	# strategy(:rest!, :should_rest?)
-	# strategy(:rest!) { should_rest? }
-	# strategy { rest! if should_rest? }
+  # The following statement is equivalent: 
+  # strategy(:rest!, :should_rest?)
+  # strategy(:rest!) { should_rest? }
+  # strategy { rest! if should_rest? }
 
-	# The following statement is equivalent: 
-	# directional(:attack!, :enemy?)
-	# directional(:attack!) { |d| enemy?(d) }
-	# directional { |d| attack!(d) if enemy?(d) }
+  # The following statement is equivalent: 
+  # directional(:attack!, :enemy?)
+  # directional(:attack!) { |d| enemy?(d) }
+  # directional { |d| attack!(d) if enemy?(d) }
 
   def_strategries do
     directional(:rescue!, :ticking?)
-    strategy(:rest!, :rest_when_ticking?)
+    strategy { rest! if rest_when_ticking? }
     strategy { walk_to_items!(listen.select(&:ticking?)) }
     strategy { bind!(nearby_enemies.last) if nearby_enemies.count>1 }
     directional(:detonate!, :should_detonate?)
@@ -29,7 +29,7 @@ class Player
     directional(:rescue!, :captive?)
     strategy { walk_to_items!(listen) }
     strategy { walk!(direction_of_stairs) }
-	end
+  end
 
   on_start do
     @pos = [0, 0]
