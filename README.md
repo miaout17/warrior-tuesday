@@ -6,4 +6,9 @@ The sample code consists an AI which get all-S Ranks in intermediate epic-mode. 
 * rubywarrior/i-oo: Refactoring with pure OO idioms(Java-style). 
 * rubywarrior/i-dsl: Refactoring with Metaprogramming and DSL. 
 
+Some other examples: 
+
+* rubywarrior/dsl-starter: A starter script using my PlayerHelper that can pass beginner lv1. You can try to extend the script to solve other levels. 
+* rubywarrior/delegation: Delegation sample code used in slide. (In fact, it's solution of beginner lv5)
+
 Note: You got to pass all levels to enter epic mode. It's strongly suggested to play all levels before reading my solution!
