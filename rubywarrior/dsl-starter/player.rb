@@ -5,9 +5,10 @@ class Player
   include PlayerHelper
 
   actions :walk!
+  # senses :feel
 
   def_strategries do
-    # stragegy { attack! if enemy? }
+    # strategy { attack! if enemy? }
     strategy(:walk!)
   end
 
